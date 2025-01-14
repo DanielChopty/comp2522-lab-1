@@ -63,11 +63,11 @@ public BankAccount(final String accountNumber,
                    final Date accountClosed,
                    final BankClient client)
 {
-    this.balance = balance;
+    this.balance =       balance;
     this.accountNumber = accountNumber;
     this.accountOpened = accountOpened;
     this.accountClosed = accountClosed;
-    this.client = client;
+    this.client =        client;
     validateAccountNumber(accountNumber);
 }
     /**

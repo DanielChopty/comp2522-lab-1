@@ -52,11 +52,11 @@ public class BankClient
                       final Date signupDate,
                       final String clientID)
     {
-        this.name = name;
-        this.birthDate = birthDate;
-        this.deathDate = deathDate;
+        this.name =       name;
+        this.birthDate =  birthDate;
+        this.deathDate =  deathDate;
         this.signupDate = signupDate;
-        this.clientID = clientID;
+        this.clientID =   clientID;
         validateClientID(clientID);
     }
     /**
