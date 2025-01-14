@@ -6,11 +6,27 @@ import java.text.DecimalFormat;
  * @author Daniel Chopty
  * @version 1.0
  */
-public class BankAccount {
+public class BankAccount
+{
+    /**
+     * Represents an externally sourced account number.
+     */
     private final String accountNumber;
+    /**
+     * Represents an externally sourced balance.
+     */
     private double balance;
+    /**
+     * Represents an externally sourced account opening date.
+     */
     private final Date accountOpened;
+    /**
+     * Represents an externally sourced account closing date.
+     */
     private final Date accountClosed;
+    /**
+     * Represents an externally sourced client from the BankClient class.
+     */
     private final BankClient client;
     /**
      * Represents the minimum length for the account number.

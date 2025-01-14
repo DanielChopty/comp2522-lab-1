@@ -8,7 +8,8 @@ package ca.bcit.comp2522.bank;
  * @author Daniel Chopty
  * @version 1.0
  */
-public class Date {
+public class Date
+{
     /**
      * Represents an externally sourced year.
      */
@@ -374,7 +375,7 @@ public class Date {
                 || (month == FEBRUARY && !isLeapYear(year) && day >
                 MAX_DAY_FEBRUARY_NO_LEAP)
                 || (month == APRIL
-        ) || month == JUNE
+                || month == JUNE
                 || month == SEPTEMBER
                 || month == NOVEMBER) && (day > MAX_DAY_REGULAR_MONTH)
                 || (month == JANUARY
@@ -383,7 +384,7 @@ public class Date {
                 || month == JULY
                 || month == AUGUST
                 || month == OCTOBER
-                || month == DECEMBER) && (day > MAX_DAY_LONG_MONTH))
+                || month == DECEMBER) && (day > MAX_DAY_LONG_MONTH)))
         {
             throw new IllegalArgumentException("Bad day: " + day);
         }
@@ -415,7 +416,8 @@ public class Date {
     {
         return this.day;
     }
-    public String getLongMonth(int month) {
+    public String getLongMonth(int month)
+    {
         switch (month) {
             case JANUARY: return JANUARY_STRING;
             case FEBRUARY: return FEBRUARY_STRING;
@@ -506,40 +508,50 @@ public class Date {
      */
     public String getDayOfWeek()
     {
-        int numTwelves;
-        int remainder;
-        int fours;
-        int afterAddingDay;
-        int afterAddingMonthCode;
-        int dayOfWeekNumeric;
+        final int numTwelves;
+        final int remainder;
+        final int fours;
+        final int afterAddingDay;
+        final int afterAddingMonthCode;
+        final int dayOfWeekNumeric;
         int startValue = INITIAL_START_VALUE;
         // Adjust start value based on leap years and century
+        // Cases where year is a leap year and month is January or February
         if (isLeapYear(year) && (month == JANUARY || month == FEBRUARY))
         {
+            // if in 20th century, only add 6 (leap year addition)
             startValue += ALGORITHM_JANUARY_FEBRUARY_ADDITION;
             if (year >= START_OF_21ST_CENTURY)
             {
+                // if in 21st century, add 12 (leap year addition and 21st century addition)
                 startValue += ALGORITHM_2000S_ADDITION;
             }
             else if (year >= START_OF_19TH_CENTURY && year <= END_OF_19TH_CENTURY)
             {
+                // if in 19th century, add 8 (leap year addition and 19th century addition)
                 startValue += ALGORITHM_1800S_ADDITION;
             }
         }
+        // Cases where year is not a leap year, month is not January or February, or both
         else if (year >= START_OF_21ST_CENTURY)
         {
+            // if in 21st century, add 6
             startValue += ALGORITHM_2000S_ADDITION;
         }
         else if (year >= START_OF_19TH_CENTURY && year <= END_OF_19TH_CENTURY)
         {
+            // if in 19th century, add 2
             startValue += ALGORITHM_1800S_ADDITION;
         }
+
+        // algorithm to find the day of the week as an integer
         numTwelves = (year % LAST_TWO_DIGIT_EXTRACTOR) / TWELVE;
         remainder = (year % LAST_TWO_DIGIT_EXTRACTOR) - (numTwelves * TWELVE);
         fours = remainder / FOUR;
         afterAddingDay = this.day + fours + remainder + numTwelves + startValue;
         afterAddingMonthCode = afterAddingDay + getMonthCode(month);
         dayOfWeekNumeric = afterAddingMonthCode % DAYS_IN_WEEK;
+
         return getDayOfWeekString(dayOfWeekNumeric);
     }
 }

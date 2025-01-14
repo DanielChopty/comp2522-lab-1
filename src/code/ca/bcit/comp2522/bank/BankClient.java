@@ -5,11 +5,27 @@ package ca.bcit.comp2522.bank;
  * @author Daniel Chopty
  * @version 1.0
  */
-public class BankClient {
+public class BankClient
+{
+    /**
+     * Represents an externally sourced name from the Name class.
+     */
     private final Name name;
+    /**
+     * Represents an externally sourced birthday.
+     */
     private final Date birthDate;
+    /**
+     * Represents an externally sourced date of death.
+     */
     private final Date deathDate;
+    /**
+     * Represents an externally sourced bank signup date.
+     */
     private final Date signupDate;
+    /**
+     * Represents an externally sourced client ID.
+     */
     private final String clientID;
     /**
      * Represents the minimum acceptable client ID length.

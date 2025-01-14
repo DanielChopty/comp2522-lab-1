@@ -9,9 +9,17 @@ package ca.bcit.comp2522.bank;
  * @author Daniel Chopty
  * @version 1.0
  */
-public class Name {
+public class Name
+{
 
+    /**
+     * Represents an externally sourced first name.
+     */
     private final String firstName;
+
+    /**
+     * Represents an externally sourced last name.
+     */
     private final String lastName;
 
     /**
@@ -109,7 +117,8 @@ public String getInitials()
      *
      * @return the full name with proper capitalization
      */
-    public String getFullName() {
+    public String getFullName()
+    {
         final StringBuilder fullName;
         fullName = new StringBuilder();
         fullName.append(Character.toUpperCase(firstName.charAt(FIRST_INITIAL)));

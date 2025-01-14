@@ -2,8 +2,10 @@ package ca.bcit.comp2522.bank;
 /**
  * Main class to test the BankClient, BankAccount, and associated classes.
  */
-public class Main {
-    public static void main(String[] args) {
+public class Main
+{
+    public static void main(String[] args)
+    {
         // Declare objects for Albert Einstein
         Name einsteinName;
         Date einsteinBirthDate, einsteinDeathDate, einsteinSignupDate, einsteinAccountOpened, einsteinAccountClosed;
